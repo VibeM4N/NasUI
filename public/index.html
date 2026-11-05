@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NAS | Storage</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">N</div>
+        <div>
+          <h2>nexus<span>.</span></h2>
+          <small>PERSONAL STORAGE</small>
+        </div>
+      </div>
+
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav active" id="homeBtn">⌂ &nbsp; Overview</button>
+      <button class="nav" id="filesBtn">▤ &nbsp; My Storage</button>
+
+      <div class="sidebar-bottom">
+        <div class="connection">
+          <span class="dot"></span>
+          <div>
+            <strong>System Online</strong>
+            <small>Windows SMB</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div>
+          <h1 id="pageTitle">Overview</h1>
+          <p id="subtitle">Your personal network storage.</p>
+        </div>
+        <button class="refresh" id="refreshBtn">↻ Refresh</button>
+        <div class="global-search">
+          <span>⌕</span>
+          <input
+            type="search"
+            id="globalSearch"
+            placeholder="Search all your storage..."
+          />
+        </div>
+      </header>
+      <div id="globalResults" class="global-results" hidden></div>
+
+      <div id="dropZone" class="drop-zone">
+        <div class="drop-icon">☁</div>
+        <strong>Drag & Drop files here</strong>
+        <p>Or click to browse your computer</p>
+
+        <input type="file" id="fileInput" multiple hidden />
+
+        <div class="upload-info">
+          <span>Uploading to:</span>
+          <strong id="uploadDestination">Select a folder first</strong>
+        </div>
+
+        <div id="uploadStatus">Waiting for files...</div>
+
+        <div class="progress-track">
+          <div id="uploadProgress"></div>
+        </div>
+      </div>
+
+      <section id="dashboard">
+        <div class="welcome">
+          <div>
+            <p class="eyebrow">YOUR PERSONAL CLOUD</p>
+            <h2>Your files.<br />All in one place.</h2>
+            <p>Access your network storage from anywhere on your LAN.</p>
+          </div>
+          <div class="welcome-icon">▤</div>
+        </div>
+
+        <div class="section-heading">
+          <h2>Shared Folders</h2>
+        </div>
+        <div id="folders" class="share-grid"></div>
+
+        <div class="section-heading" style="margin-top: 35px">
+          <h2>Shared Drives</h2>
+        </div>
+        <div id="drives" class="share-grid"></div>
+      </section>
+
+      <section id="explorer" hidden>
+        <div class="explorer-toolbar">
+          <div class="breadcrumbs" id="breadcrumbs"></div>
+
+          <div class="explorer-actions">
+            <div class="search-box">
+              <span>⌕</span>
+              <input
+                type="search"
+                id="explorerSearch"
+                placeholder="Search this folder..."
+              />
+            </div>
+            <button class="refresh" id="backToShares">← Shares</button>
+          </div>
+        </div>
+
+        <div class="file-table">
+          <div class="table-head">
+            <span>Name</span>
+            <span>Size</span>
+            <span>Modified</span>
+            <span>Action</span>
+          </div>
+          <div id="fileList"></div>
+        </div>
+      </section>
+
+      <div id="preview" class="preview" hidden>
+        <div class="preview-head">
+          <button id="closePreview">← Back</button>
+          <strong id="previewName"></strong>
+        </div>
+        <div id="previewContent" class="preview-content"></div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
